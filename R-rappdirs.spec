@@ -4,17 +4,19 @@
 #
 Name     : R-rappdirs
 Version  : 0.3.1
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/rappdirs_0.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rappdirs_0.3.1.tar.gz
 Summary  : Application Directories: Determine Where to Save Data, Caches,
 Group    : Development/Tools
 License  : MIT
-Requires: R-rappdirs-lib
+Requires: R-rappdirs-lib = %{version}-%{release}
+Requires: R-assertthat
+BuildRequires : R-assertthat
 BuildRequires : buildreq-R
 
 %description
-you should use to save data, caches and logs. A port of Python's 'Appdirs'
+[![Build Status](https://travis-ci.org/hadley/rappdirs.svg)](https://travis-ci.org/hadley/rappdirs)
 
 %package lib
 Summary: lib components for the R-rappdirs package.
@@ -32,11 +34,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536421939
+export SOURCE_DATE_EPOCH=1552783814
 
 %install
+export SOURCE_DATE_EPOCH=1552783814
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1536421939
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rappdirs|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  rappdirs || :
 
 
 %files
@@ -98,10 +99,15 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rappdirs/help/rappdirs.rdx
 /usr/lib64/R/library/rappdirs/html/00Index.html
 /usr/lib64/R/library/rappdirs/html/R.css
-/usr/lib64/R/library/rappdirs/libs/symbols.rds
+/usr/lib64/R/library/rappdirs/tests/test-all.R
+/usr/lib64/R/library/rappdirs/tests/testthat/test-appdir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-site_config_dir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-site_data_dir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-user_cache_dir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-user_config_dir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-user_log_dir.r
+/usr/lib64/R/library/rappdirs/tests/testthat/test-utils.r
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/rappdirs/libs/rappdirs.so
-/usr/lib64/R/library/rappdirs/libs/rappdirs.so.avx2
-/usr/lib64/R/library/rappdirs/libs/rappdirs.so.avx512
