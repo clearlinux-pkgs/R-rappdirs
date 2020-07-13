@@ -4,7 +4,7 @@
 #
 Name     : R-rappdirs
 Version  : 0.3.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/rappdirs_0.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rappdirs_0.3.1.tar.gz
 Summary  : Application Directories: Determine Where to Save Data, Caches,
