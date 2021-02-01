@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
 R-reticulate
 R-rhub
+R-sass
 R-usethis
