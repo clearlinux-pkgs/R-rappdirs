@@ -1,4 +1,6 @@
 # This file contains recursive sources that require this package
+R-batchtools
+R-gargle
 R-reticulate
 R-rhub
 R-sass
