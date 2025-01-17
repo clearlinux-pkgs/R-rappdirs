@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 R-batchtools
 R-gargle
+R-httr2
 R-reticulate
 R-rhub
 R-sass
